@@ -27,3 +27,14 @@ def remove_folder_content(folder_path):
 def just_filename(path_string):
     name = os.path.splitext(os.path.basename(path_string))[0]
     return name
+
+def join_markdown_files(folder_path):
+    output_file = f"{just_filename(folder_path)}.md"
+
+    with open(output_file, 'w') as outfile:
+        for filename in os.listdir(folder_path):
+            if filename.endswith('.md'):
+                with open(os.path.join(folder_path, filename), 'r') as infile:
+                    outfile.write(infile.read())
+                    # outfile.write("\n\n")  # Add a newline between files
+                # print(f"Added {filename}")

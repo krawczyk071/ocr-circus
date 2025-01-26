@@ -80,87 +80,91 @@ Piensa en lugares interesantes de tu ciudad (una tienda, un restaurante, etc.). 
 
 ## CUANTIFICADORES
 
-### MASCULINO
+### SINGULAR
 
-| SINGULAR           | FEMENINO       |
-|--------------------|----------------|
-| *ningún parque     | ninguna plaza  |
-| poco tráfico       | poca gente     |
-| *un parque         | una plaza      |
-| *algún parque      | alguna plaza    |
-| bastante tráfico / gente | mucha gente  |
+| MASCULINO        | FEMENINO        |
+|------------------|-----------------|
+| *ningún parque    | ninguna plaza     |
+| poco tráfico      | poca gente        |
+| *una plaza       |                  |
+| *algún parque     | alguna plaza      |
+| bastante tráfico / gente | mucha gente   |
 
-### PLURAL
+**PLURAL**
 
-| MASCULINO          | FEMENINO       |
-|--------------------|----------------|
-| pocos parques      | pocas plazas   |
-| algunos parques    | algunas plazas |
-| varios parques     | varias plazas  |
+| MASCULINO       | FEMENINO         |
+|------------------|-----------------|
+| pocos parques     | pocas plazas     |
+| algunos parques   | algunas plazas   |
+| varios parques    | varias plazas    |
 | bastantes parques / plazas | muchas plazas |
-| muchos parques     | muchas plazas  |
 
-* Cuando se refieren a un sustantivo ya conocido y no lo repetimos, usamos las formas *ninguno*, *uno* y *alguno*.
+> * Cuando se refieren a un sustantivo ya conocido y no lo repetimos, usamos las formas *ninguno, uno* y *alguno*.
+
+**Ejemplos:**
+
+- Perdona, ¿hay algún gimnasio por aquí?
+- Mmm... no, no hay ninguno.
+- En mi barrio no hay ningún hospital.
+- Pues en el mío hay uno muy bonito.
 
 ---
 
 ## PEDIR INFORMACIÓN SOBRE DIRECCIONES
 
-- **Perdona/e,**
-- **¿sabes / sabe si hay una farmacia (por) aquí cerca?**
-- **¿está muy lejos de aquí el estadio de fútbol?**
-- **¿dónde está la parada de metro?**
-- **¿la biblioteca está en esta calle?**
+|                                                          |
+|----------------------------------------------------------|
+| **sabes / sabe si hay una farmacia (por) aquí cerca?**   |
+| Perdona/e,                                               |
+| **¿está muy lejos de aquí el estadio de fútbol?**       |
+| **¿dónde está la parada de metro?**                      |
+| **¿la biblioteca está en esta calle?**                   |
 
-![Diálogo](image-link)
-
-> Disculpe, ¿sabe si hay algún banco por aquí?
-
-**Está:**
-
-- unos 20 minutos a pie / en metro / en coche.
-- (unos) 200 metros de aquí.
-- muy lejos.
-- bastante lejos.
-- un poco lejos.
-
-**Está:**
-
-- bastante cerca.
-- muy cerca.
-- aquí al lado.
-- aquí mismo.
+> Si, mire, en la plaza hay uno, justo en la esquina.
 
 ---
 
 ## DAR INFORMACIÓN SOBRE DIRECCIONES
 
-**P.: 165, Ej. 10; P.: 166, Ej. 12**
+**P. 165, EJ. 10; P. 166, EJ. 12**
 
-- **¿La universidad está muy lejos de aquí?**
-  
-  **¡Qué va! Está aquí a cinco minutos a pie.**
+|  Estás                      |
+|-----------------------------|
+| a unos 20 minutos a pie / en metro / en coche. |
+| (unos) 200 metros de aquí.  |
+| muy lejos.                  |
+| bastante lejos.             |
+| un poco lejos.              |
 
-### Ejemplos de direcciones
+|  Estás                      |
+|-----------------------------|
+| bastante cerca.             |
+| muy cerca.                 |
+| aquí al lado.              |
+| aquí mismo.                |
 
-- **Todo recto**
-- **A la derecha (de...)**
-- **A la izquierda (de...)**
-- **Al lado (de...)**
-- **Al final de la calle...**
-- **En la esquina**
-- **En la plaza...**
+**Notas:**
+
+- ¿La universidad está muy lejos de aquí?
+- ¡Qué va! Está aquí al lado. A cinco minutos a pie.
 
 ---
 
 ## EXPRESAR GUSTOS: RESALTAR UN ASPECTO
 
-- **Lo que más / menos me gusta de mi barrio es / son** + sustantivo
-- **Lo que más / menos me gusta de mi barrio es** + frase
+| Lo que más / menos me gusta de mi barrio es / son | sustantivo  |
+|----------------------------------------------------|-------------|
+| Lo que más / menos me gusta de mi barrio es (frase) |             |
 
-**¿Y qué es lo que más te gusta de tu barrio?**
+> **¿Qué es lo que más te gusta de tu barrio?**
+>
+> **Lo que más me gusta es la gente y lo que menos me gusta es que hay pocas zonas verdes.**
 
-- **Lo que más me gusta es la gente y lo que menos me gusta es que hay pocas zonas verdes.**
+---
+
+> Perdona, ¿sabes si hay una farmacia por aquí?
+> 
+> Sí, mire, hay uno al final de la calle, a la derecha, al lado de un gimnasio.
 
 # VIAJAR
 
