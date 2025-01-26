@@ -1,8 +1,10 @@
 import os
 import shutil
 
-def folder_path_to_files_paths(folder_path):
+def folder_path_to_files_paths(folder_path: str) -> list[str]:
     file_paths = [os.path.join(folder_path, file) for file in os.listdir(folder_path)]
+    file_paths.sort()
+    
     return file_paths
 
 def ensure_folder_exists(folder_path):
@@ -32,7 +34,9 @@ def join_markdown_files(folder_path):
     output_file = f"{just_filename(folder_path)}.md"
 
     with open(output_file, 'w') as outfile:
-        for filename in os.listdir(folder_path):
+
+        mds_list = sorted(os.listdir(folder_path))
+        for filename in mds_list:
             if filename.endswith('.md'):
                 with open(os.path.join(folder_path, filename), 'r') as infile:
                     outfile.write(infile.read())

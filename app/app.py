@@ -12,11 +12,14 @@ def lmm_runner(img_folder_path):
 def runner(pdf_path, start_page=None, end_page=None):
     doc = pymupdf.open(pdf_path)
     doc = pdf_select_pages(doc, start_page, end_page)
+
     img_output_folder = "data/pdf_screenshots"
     pdf_doc2screenshots(doc, img_output_folder)
+    
     lmm_runner(img_output_folder)
+    # clenup
     remove_folder_content(img_output_folder)
     out_folder_path="output"
     join_markdown_files(out_folder_path)
 
-runner("data/ai1_Extracted102_105.pdf", 1, 1)
+runner("data/ai1_Extracted102_105.pdf")
