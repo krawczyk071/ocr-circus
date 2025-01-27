@@ -7,6 +7,55 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain.schema.messages import HumanMessage
 import base64
 
+PROMPT_TEMPLATE = """
+You are an expert PDF OCR and markdown conversion assistant.
+Given an image of full page scanned {language} textbook:
+1. Perform full OCR processing
+2. Preserve original document structure
+3. Convert to clean markdown
+4. Maintain:
+   - Original formatting
+   - Section hierarchies
+   - Typography distinctions
+   - Tables and lists
+5. Clean up OCR artifacts
+6. Ensure maximum text accuracy
+7. Handle multi-column layouts intelligently
+8. Detect and properly format headers, paragraphs, captions
+
+Output requirements:
+- Fully searchable markdown file
+- Professional formatting
+- No OCR noise/errors
+- Semantic markdown structure
+- Readable and well-organized
+"""
+
+PROMPT_FOR_LAYOUT = """
+You ar en OCR expert. I will provide an image of scanned textbook page.
+Please analyze this image and provide the bounding box coordinates for all tables, images, graphs, charts, and diagrams. 
+For each detected element, return:
+1. The element type (table, image, graph, chart, or diagram)
+2. The coordinates of its bounding box in [x1, y1, x2, y2] format, where:
+   - (x1,y1) is the top-left corner
+   - (x2,y2) is the bottom-right corner
+   - Coordinates should be in pixels relative to the image dimensions
+
+Please format your response as a JSON object with this structure:
+{
+  "elements": [
+    {
+      "type": "table",
+      "coordinates": [100, 200, 300, 400]
+    },
+    {
+      "type": "chart",
+      "coordinates": [500, 600, 700, 800]
+    }
+  ]
+}
+"""
+
 def encode_image(image_path):
     with open(image_path, "rb") as image_file:
         return base64.b64encode(image_file.read()).decode('utf-8')
@@ -54,8 +103,12 @@ def save_as_markdown(content, file_name, output_path):
     with open(f"{output_path}/{file_name}.md", 'w', encoding='utf-8') as file:
         file.write(trimmed_content)
 
-def run_llm(img_path):
-    prompt=PROMPT_TEMPLATE.format(language="spanish")
+def prep_prompt(prompt_template=PROMPT_TEMPLATE, prompt_modifier="spanish"):
+    prompt = prompt_template.format(language=prompt_modifier)
+    return prompt
+
+def run_llm(img_path, prompt=prep_prompt()):
+    
     encoded_image = encode_image(img_path)
     hm=create_image_message(prompt,encoded_image)
     response=llm.invoke([hm])
@@ -65,30 +118,10 @@ load_dotenv()  # Load variables from .env
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 llm = ChatOpenAI(model="gpt-4o-mini", api_key=OPENAI_API_KEY)
+# llm = ChatOpenAI(model="gpt-4o", api_key=OPENAI_API_KEY)
+# llm = ChatOpenAI(model="o1-2024-12-17", api_key=OPENAI_API_KEY)
 
-PROMPT_TEMPLATE = """
-You are an expert PDF OCR and markdown conversion assistant.
-Given an image of full page scanned {language} textbook:
-1. Perform full OCR processing
-2. Preserve original document structure
-3. Convert to clean markdown
-4. Maintain:
-   - Original formatting
-   - Section hierarchies
-   - Typography distinctions
-   - Tables and lists
-5. Clean up OCR artifacts
-6. Ensure maximum text accuracy
-7. Handle multi-column layouts intelligently
-8. Detect and properly format headers, paragraphs, captions
 
-Output requirements:
-- Fully searchable markdown file
-- Professional formatting
-- No OCR noise/errors
-- Semantic markdown structure
-- Readable and well-organized
-"""
 
 
 
