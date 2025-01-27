@@ -1,6 +1,6 @@
 [x] kolejnosc sklejania md zla
 [x]main py file
-gui streamlit
+[]gui streamlit
 problem ze sciezkami inne z notebook inne z py
     pathlib
 

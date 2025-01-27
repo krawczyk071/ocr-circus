@@ -48,11 +48,10 @@ def remove_markdown_tags(text):
     
     return text
 
-def save_as_markdown(content, file_name):
+def save_as_markdown(content, file_name, output_path):
     
     trimmed_content = remove_markdown_tags(isolate_markdown(content))
-    
-    with open(f"./output/{file_name}.md", 'w', encoding='utf-8') as file:
+    with open(f"{output_path}/{file_name}.md", 'w', encoding='utf-8') as file:
         file.write(trimmed_content)
 
 def run_llm(img_path):

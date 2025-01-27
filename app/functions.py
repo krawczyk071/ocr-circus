@@ -31,7 +31,7 @@ def just_filename(path_string):
     return name
 
 def join_markdown_files(folder_path):
-    output_file = f"{just_filename(folder_path)}.md"
+    output_file = f"{folder_path}/{just_filename(folder_path)}.md"
 
     with open(output_file, 'w') as outfile:
 
