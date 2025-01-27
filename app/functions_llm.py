@@ -1,10 +1,14 @@
 from dotenv import load_dotenv
 import os
 # Import Langchain modules
-from langchain_openai import OpenAIEmbeddings, ChatOpenAI
+from langchain_openai import ChatOpenAI
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.prompts import ChatPromptTemplate
 from langchain.schema.messages import HumanMessage
+from langchain_google_genai import ChatGoogleGenerativeAI
+# from langchain_anthropic import ChatAnthropic
+# from langchain.llms import DeepSeek
+
 import base64
 
 PROMPT_TEMPLATE = """
@@ -24,6 +28,7 @@ Given an image of full page scanned {language} textbook:
 8. Detect and properly format headers, paragraphs, captions
 
 Output requirements:
+- Use just plain text and markdown, no HTML tags
 - Fully searchable markdown file
 - Professional formatting
 - No OCR noise/errors
@@ -55,6 +60,15 @@ Please format your response as a JSON object with this structure:
   ]
 }
 """
+
+load_dotenv()  # Load variables from .env
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+
+chat_models = {'gpt4omini': ChatOpenAI(model="gpt-4o-mini", api_key=OPENAI_API_KEY),
+                'gpt4o': ChatOpenAI(model="gpt-4o", api_key=OPENAI_API_KEY),
+                'gemini2flash': ChatGoogleGenerativeAI(model="gemini-2.0-flash-exp", api_key=GOOGLE_API_KEY)
+                }
 
 def encode_image(image_path):
     with open(image_path, "rb") as image_file:
@@ -107,19 +121,24 @@ def prep_prompt(prompt_template=PROMPT_TEMPLATE, prompt_modifier="spanish"):
     prompt = prompt_template.format(language=prompt_modifier)
     return prompt
 
-def run_llm(img_path, prompt=prep_prompt()):
-    
+def run_llm(img_path,chat_model:str='gpt4omini', prompt=prep_prompt()):
+    llm=chat_models[chat_model]
     encoded_image = encode_image(img_path)
     hm=create_image_message(prompt,encoded_image)
     response=llm.invoke([hm])
+    
+    print(f"processed with {chat_model}")
     return response
 
-load_dotenv()  # Load variables from .env
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
-llm = ChatOpenAI(model="gpt-4o-mini", api_key=OPENAI_API_KEY)
+
+# llm = ChatOpenAI(model="gpt-4o-mini", api_key=OPENAI_API_KEY)
 # llm = ChatOpenAI(model="gpt-4o", api_key=OPENAI_API_KEY)
 # llm = ChatOpenAI(model="o1-2024-12-17", api_key=OPENAI_API_KEY)
+
+# llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash-exp", api_key=GOOGLE_API_KEY)
+# llm = ChatAnthropic(model="claude-3-sonnet-20240229")
+# deepseek_model = DeepSeek(api_key="your_deepseek_api_key")
 
 
 

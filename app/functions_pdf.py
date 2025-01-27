@@ -1,7 +1,6 @@
 import pymupdf
 from PIL import Image
 from functions import *
-import datetime
 
 # doc = pymupdf.open(pdf_file) # open a document
 def open_pdf(pdf_path):
@@ -34,7 +33,7 @@ def pdf_doc2screenshots(doc, output_folder, zoom_x=2.0, zoom_y=2.0):  # zoom inc
     if doc.name:
         fname = just_filename(doc.name) 
     else:
-        current_time = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+        current_time = get_current_time_str()
         fname = f"upload_{current_time}"
 
     try:

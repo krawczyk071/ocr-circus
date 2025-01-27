@@ -1,5 +1,6 @@
 import os
 import shutil
+import datetime
 
 def folder_path_to_files_paths(folder_path: str) -> list[str]:
     file_paths = [os.path.join(folder_path, file) for file in os.listdir(folder_path)]
@@ -31,7 +32,8 @@ def just_filename(path_string):
     return name
 
 def join_markdown_files(folder_path):
-    output_file = f"{folder_path}/{just_filename(folder_path)}.md"
+    
+    output_file = folder_path.parent / f'merged_{folder_path.stem}.md'
 
     with open(output_file, 'w') as outfile:
 
@@ -42,3 +44,7 @@ def join_markdown_files(folder_path):
                     outfile.write(infile.read())
                     # outfile.write("\n\n")  # Add a newline between files
                 # print(f"Added {filename}")
+
+def get_current_time_str():        
+        current_time = datetime.datetime.now().strftime("%y%m%d%H%M%S")
+        return current_time
