@@ -42,7 +42,7 @@ def join_markdown_files(folder_path):
             if filename.endswith('.md'):
                 with open(os.path.join(folder_path, filename), 'r') as infile:
                     outfile.write(infile.read())
-                    # outfile.write("\n\n")  # Add a newline between files
+                    outfile.write("\n\n")  # Add a newline between files
                 # print(f"Added {filename}")
 
 def get_current_time_str():        

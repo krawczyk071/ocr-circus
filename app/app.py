@@ -41,4 +41,6 @@ def runner(pdf_path, start_page=None, end_page=None,chat_model='gpt4omini'):
     join_markdown_files(out_folder_path)
 
 
-runner("./data/ai1_Extracted102_105.pdf",1,1)
+# runner("./data/ai1_Extracted102_105.pdf",1,1)
+runner("/Users/szymonkrawczyk/Documents/espanol/Aula Internacional 2 Nueva Edicion.pdf",12,35,'gemini2flash')
+# openai 31c przed 41po 10c/24strony

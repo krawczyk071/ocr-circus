@@ -44,7 +44,8 @@ def pdf_doc2screenshots(doc, output_folder, zoom_x=2.0, zoom_y=2.0):  # zoom inc
             page = doc[page_num]
             pix = page.get_pixmap(matrix=mat) # render page to an image
             img = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
-            img.save(f"{output_folder}/{fname}_p{page_num + 1}.png")
+            fnumb = str(page_num + 1).zfill(3)
+            img.save(f"{output_folder}/{fname}_p{fnumb}.png")
         
         return f"Screenshots saved to {output_folder}"
     except pymupdf.fitz.FileNotFoundError:
